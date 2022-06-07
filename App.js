@@ -1,9 +1,9 @@
 import React from 'react';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import SplashScreen from 'react-native-splash-screen';
-import { MemberProvider } from './src/context/MemberContext';
+import {MemberProvider} from './src/context/MemberContext';
 import HomeScreen from './src/screens/HomeScreen';
 import CounterScreen from './src/screens/CounterScreen';
 import ImagesScreen from './src/screens/ImagesScreen';
@@ -17,48 +17,50 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const homeFlow = createStackNavigator({
-  Home: HomeScreen,
-  Counters: CounterScreen,
-  Members: MemberListScreen,
-  Images: ImagesScreen,
-  Animation: AnimationScreen,
-  Extras: ExtrasScreen
+    Home: HomeScreen,
+    Counters: CounterScreen,
+    Members: MemberListScreen,
+    Images: ImagesScreen,
+    Animation: AnimationScreen,
+    Extras: ExtrasScreen
 });
 
 homeFlow.navigationOptions = {
-  title: 'Home',
-  tabBarIcon: <FontAwesome5 name="home" size={20} />,
-  tabBarAccessibilityLabel: 'Home'
+    title: 'Home',
+    tabBarIcon: <FontAwesome5 name="home" size={20} testID="homeNavigationImage"/>,
+    tabBarAccessibilityLabel: 'Home',
+    tabBarTestID: 'homeNavigationSection'
 }
 
 const membersFlow = createStackNavigator({
-  Members: MemberListScreen,
-  ShowMember: ShowMemberScreen,
-  AddMember: AddMemberScreen,
-  EditMember: EditMemberScreen,
+    Members: MemberListScreen,
+    ShowMember: ShowMemberScreen,
+    AddMember: AddMemberScreen,
+    EditMember: EditMemberScreen,
 });
 
 membersFlow.navigationOptions = {
-  title: 'Members',
-  tabBarIcon: <MaterialCommunityIcons name="wallet-membership" size={20} />,
-  tabBarAccessibilityLabel: 'Members'
+    title: 'Members',
+    tabBarIcon: <MaterialCommunityIcons name="wallet-membership" size={20} testID="membersNavigationImage"/>,
+    tabBarAccessibilityLabel: 'Members',
+    tabBarTestID: 'membersNavigationSection'
 }
 
 const switchNavigator = createSwitchNavigator({
-  mainFlow: createBottomTabNavigator({
-    homeFlow,
-    Images: ImagesScreen,
-    membersFlow
-  })
+    mainFlow: createBottomTabNavigator({
+        homeFlow,
+        Images: ImagesScreen,
+        membersFlow
+    })
 });
 
 const App = createAppContainer(switchNavigator);
 
 export default () => {
-  SplashScreen.hide();
-  return (
-    <MemberProvider>
-      <App />
-    </MemberProvider>
-  );
+    SplashScreen.hide();
+    return (
+        <MemberProvider>
+            <App/>
+        </MemberProvider>
+    );
 };
