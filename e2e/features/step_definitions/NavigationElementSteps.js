@@ -12,7 +12,7 @@ Given('I tap on the {string} navigation tab', async (section)=>{
     await element(by.id(`${section.toLowerCase()}NavigationSection`)).atIndex(0).tap();
 })
 
-Then('I tap the Add Member Icon', async () => {
+Then('I tap on the Add Member icon', async () => {
     await element(by.id('memberListHeader')).atIndex(0).tap();
     await element(by.id('addMemberIcon')).atIndex(0).tap();
 });

@@ -15,6 +15,7 @@ const MemberFormCalendarFields = ({
   isFailingValidation,
   errorMessage,
   isInError,
+    formTestID
 }) => {
   const [show, setShow] = useState(false);
   const [selectedDate, setSelectedDate] = useState(inputValue);
@@ -43,6 +44,7 @@ const MemberFormCalendarFields = ({
           isFailingValidation={isFailingValidation}
           errorMessage={errorMessage}
           isInError={isInError}
+          formTestId={formTestID}
         />
       </TouchableOpacity>
       {show && (

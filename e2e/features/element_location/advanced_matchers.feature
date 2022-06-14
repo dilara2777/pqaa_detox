@@ -27,7 +27,7 @@ Feature: Advanced matchers
   @advancedmatchers @headers
   Scenario: I can match elements in navigation headers
     Given I tap on the 'Members' section
-    Then I tap the Add Member Icon
+    Then I tap on the Add Member icon
 
   @advancedmatchers @navigationtab
   Scenario: I can locate elements in the navigation tabs

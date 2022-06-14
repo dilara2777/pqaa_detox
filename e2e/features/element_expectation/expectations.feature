@@ -25,3 +25,4 @@ Feature: Element Expectations
     When I expect the Member List header test to be 'Members'
     And I expect the Add Member button to have 'addMemberLabel' as label
     And I expect the Add Member button to have 'addMemberIcon' as ID
+
