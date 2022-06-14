@@ -30,6 +30,7 @@ class Utilities {
         }
         await element(by.label(` ${weekday} ${day} ${month} ${year} `)).atIndex(0).tap();
 
+
     }
 
     async softElAssertion(mobileEl) {
